@@ -1,0 +1,21 @@
+import java.util.Scanner;
+ 
+public class Login{
+ public static void main(String args[]){
+ 
+  String usuario = "", password = "";
+  Scanner entrada = new Scanner(System.in);
+  
+  System.out.print("Ingresa tu nombre: ");
+  usuario = entrada.nextLine();
+  
+  System.out.print("Ingresa contraseña: ");
+  password = entrada.nextLine();
+
+  if(usuario.equals("joan") && password.equals("12345")){
+   System.out.println("Incorrecto ");
+  } else {
+    System.out.println("Correcto ");
+  }
+ }
+}
