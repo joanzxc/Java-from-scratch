@@ -1,0 +1,19 @@
+import javax.swing.*;
+
+ public class Grafico extends JFrame{
+  private JLabel label1;
+   
+  public Grafico(){
+   super("Test");
+   setLayout(null);
+   label1 = new JLabel("Calculadora: 1 + 1 = 11");
+   label1.setBounds(0,0,300,100); 
+   add(label1);
+ }
+ 
+ public static void main(String args[]){
+  Grafico porno1 = new Grafico();
+  porno1.setBounds(0,0,300,200);
+  porno1.setVisible(true);
+  porno1.setLocationRelativeTo(null);
+ }
