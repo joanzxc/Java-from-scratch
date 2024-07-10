@@ -1,0 +1,17 @@
+import javax.swing.*;
+
+public class Interfaz extends JFrame{
+ 
+ public Interfaz(){
+ super("prueba");
+ setLayout(null);
+ }
+ 
+ public static void main(String args[]){
+   Interfaz interfaz1 = new Interfaz();
+   interfaz1.setBounds(0,0,800,400);
+   interfaz1.setVisible(true);
+   interfaz1.setLocationRelativeTo(null);
+   interfaz1.setResizable(false);
+ }
+}
