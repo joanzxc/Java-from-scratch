@@ -1,58 +1,107 @@
 import javax.swing.*;
 import java.awt.event.*;
-
 public class Calculadora extends JFrame implements ActionListener{
+  private JTextField TextField1,TextField2, TextField3;
+  private JButton BotonSuma, BotonResta, BotonMultiplicacion, BotonDivision, BotonExit;
+  private JLabel label1, label2, label3;
+  String TextoResultado = "";
 
- private JTextField textfield1, textfield2;
- private JLabel label1, label2, label3;
- private JButton boton1;
+  public Calculadora(){
+   setLayout(null);
+   setTitle("Calculadora");
+   label1 = new JLabel("Valor 1:");
+   label1.setBounds(50,5,60,30);
+   add(label1);
 
- public Calculadora(){
-  setLayout(null);
-  label1 = new JLabel("Valor 1:");
-  label1.setBounds(50,5,100,30);
-  add(label1);
-  
-  label2 = new JLabel("Valor 2:");
-  label2.setBounds(50,35,100,30);
-  add(label2);
+   label2 = new JLabel("Valor 2:");
+   label2.setBounds(50,35,60,30);
+   add(label2);
 
-  label3 = new JLabel("Resultado:");
-  label3.setBounds(120,80,100,30);
-  add(label3);
-  
-  textfield1 = new JTextField();
-  textfield1.setBounds(120,10,150,20);
-  add(textfield1);
+   label3 = new JLabel("Resultado: ");
+   label3.setBounds(200,35,70,30);
+   add(label3);
 
-  textfield2 = new JTextField();
-  textfield2.setBounds(120,40,150,20);
-  add(textfield2);
+   TextField3 = new JTextField();
+   TextField3.setBounds(275,35,140,30);
+   add(TextField3);
 
-  boton1 = new JButton("Sumar");
-  boton1.setBounds(10,80,100,30);
-  add(boton1);
-  boton1.addActionListener(this);
- }
- 
- public void actionPerformed(ActionEvent e){
-  if(e.getSource() == boton1){
-    int valor1 = 0, valor2 = 0, resultado = 0;
-     
-    valor1 = Integer.parseInt(textfield1.getText());
-    valor2 = Integer.parseInt(textfield2.getText());
-     
-     resultado = valor1 + valor2;
-     
-     label3.setText("Resultado: " + resultado);
+   TextField1 = new JTextField();
+   TextField1.setBounds(120,10,70,20);
+   add(TextField1);
+
+   TextField2 = new JTextField();
+   TextField2.setBounds(120,40,70,20);
+   add(TextField2);
+
+   BotonExit = new JButton("Salir");
+   BotonExit.setBounds(360,80, 60,30);
+   add(BotonExit);
+   BotonExit.addActionListener(this);
+
+   BotonSuma = new JButton("Suma");
+   BotonSuma.setBounds(10,80,70,30);
+   add(BotonSuma);
+   BotonSuma.addActionListener(this);
+
+   BotonResta = new JButton("Resta");
+   BotonResta.setBounds(90,80,70,30);
+   add(BotonResta);
+   BotonResta.addActionListener(this);
+
+   BotonMultiplicacion = new JButton("Multiplica");
+   BotonMultiplicacion.setBounds(170,80,90,30);
+   add(BotonMultiplicacion);
+   BotonMultiplicacion.addActionListener(this);
+
+   BotonDivision = new JButton("Divide");
+   BotonDivision.setBounds(270,80,80,30);
+   add(BotonDivision);
+   BotonDivision.addActionListener(this);
+  }
+
+  public void actionPerformed(ActionEvent Evento){
+
+   if(Evento.getSource() == BotonExit){
+    System.exit(0);
    }
- }
-
- public static void main(String args[]){
-  Calculadora formulario1 = new Calculadora();
-  formulario1.setBounds(0,0,300,150);
-  formulario1.setVisible(true);
-  formulario1.setResizable(false);
-  formulario1.setLocationRelativeTo(null);
- }
+   if(Evento.getSource() == BotonSuma){
+    float Val1=0 , Val2= 0, Resultado=0, parse;
+    Val1 = Float.parseFloat(TextField1.getText());
+    Val2 = Float.parseFloat(TextField2.getText());
+    Resultado= Val1 + Val2;
+    TextoResultado = Float.toString(Resultado);
+    TextField3.setText(TextoResultado);
+   }
+   if(Evento.getSource() == BotonResta){
+    float Val1=0 , Val2= 0, Resultado=0;
+    Val1 = Float.parseFloat(TextField1.getText());
+    Val2 = Float.parseFloat(TextField2.getText());
+    Resultado= Val1 - Val2;
+    TextoResultado = Float.toString(Resultado);
+    TextField3.setText(TextoResultado);
+   }
+   if(Evento.getSource() == BotonMultiplicacion){
+    float Val1=0 , Val2= 0, Resultado=0;
+    Val1 = Float.parseFloat(TextField1.getText());
+    Val2 = Float.parseFloat(TextField2.getText());
+    Resultado= Val1 * Val2;
+    TextoResultado = Float.toString(Resultado);
+    TextField3.setText(TextoResultado);
+   }
+   if(Evento.getSource() == BotonDivision){
+    float Val1=0 , Val2= 0, Resultado=0;
+    Val1 = Float.parseFloat(TextField1.getText());
+    Val2 = Float.parseFloat(TextField2.getText());
+    Resultado= Val1 / Val2;
+    TextoResultado = Float.toString(Resultado);
+    TextField3.setText(TextoResultado);
+   }
+  }
+  public static void main(String args[]){
+    Calculadora Calculadora1 = new Calculadora();
+    Calculadora1.setBounds(0,0, 430, 150);
+    Calculadora1.setVisible(true);
+    Calculadora1.setResizable(false);
+    Calculadora1.setLocationRelativeTo(null);
+  }
 }
